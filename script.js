@@ -3,33 +3,25 @@ let ordemClicada = [];
 
 let pontos = 0;
 
-// 0 - verde
-// 1 - vermelho
-// 2 - amarelo
-// 3 - azul
-
-// Selecionando os elementos HTML a partir da classe
 let azul = document.querySelector("#azul");
 let vermelho = document.querySelector("#vermelho");
 let verde = document.querySelector("#verde");
 let amarelo = document.querySelector("#amarelo");
 
 let gerarOrdem = () => {
-  // Gera numero de 0 a 3
+  
   let proximo = Math.floor(Math.random() * 4);
   
-  // Atribui o número ao próximo da ordem
+  
   ordem[ordem.length] = proximo;
   ordemClicada = [];
   
-  // Acende a ordem gerada
   for (let i in ordem) {
     let elementoDiv = elemento(ordem[i]);
     acender(elementoDiv, Number(i) + 1);
   }
 }
 
-//Acende o elemento em sequência 
 let acender = (elementoDiv, tempo) => {
   tempo = tempo * 500;
   setTimeout(() => {
@@ -40,7 +32,6 @@ let acender = (elementoDiv, tempo) => {
   }, tempo);
 }
 
-//
 let compararOrdem = () => {
   for (let i in ordemClicada) {
     if (ordemClicada[i] != ordem[i]) {
@@ -54,7 +45,6 @@ let compararOrdem = () => {
   }
 }
 
-// Chama quando o usuário clica em uma das divs
 let clicou = (cor) => {
   ordemClicada[ordemClicada.length] = cor;
   elemento(cor).classList.add("selecionado");
